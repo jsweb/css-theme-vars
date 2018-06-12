@@ -1,0 +1,28 @@
+{
+  "name": "css-theme-vars",
+  "version": "0.0.0",
+  "description": "Create global CSS theme variables from JS Objects",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/webjs/css-theme-vars.git"
+  },
+  "keywords": [
+    "css",
+    "js",
+    "variables",
+    "object",
+    "theme",
+    "global",
+    "web"
+  ],
+  "author": "Alex Bruno Cáceres <git.alexbr@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/webjs/css-theme-vars/issues"
+  },
+  "homepage": "https://gitlab.com/webjs/css-theme-vars#README"
+}
