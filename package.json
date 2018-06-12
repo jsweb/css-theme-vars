@@ -1,5 +1,5 @@
 {
-  "name": "css-theme-vars",
+  "name": "@jsweb/css-theme-vars",
   "version": "1.0.0",
   "description": "Create global CSS theme variables from JS Objects",
   "main": "dist/main.js",
