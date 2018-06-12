@@ -34,7 +34,7 @@ Now you can do this:
 }
 ```
 
-*@jsweb/css-theme-vars* just create a var/value for each key/value pairs from the object received as argument.
+**@jsweb/css-theme-vars** just create a var/value for each key/value pairs from the object received as argument.
 
 So, just use your imagination! :)
 
