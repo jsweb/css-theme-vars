@@ -1,21 +1,65 @@
 # @jsweb/css-theme-vars
 
-Create global CSS theme variables from JS Objects
+Get and Set global CSS properties (vars) with Vanilla JS.
 
-Simple to use, just do this:
+It is useful to set/change CSS themes for web apps dynamically.
+
+## Install
+
+You can install it with NPM, Yarn or via Unpkg CDN:
+
+```
+npm i -S @jsweb/css-theme-vars
+```
+
+```
+yarn add @jsweb/css-theme-vars
+```
+
+```html
+<script src="https://unpkg.com/@jsweb/css-theme-vars"></script>
+```
+
+## Usage
+
+### ES6+
 
 ```javascript
-import cssThemeVars from '@jsweb/css-theme-vars'
+import css from '@jsweb/css-theme-vars'
+```
+
+### Common JS
+
+```javascript
+const css = require('@jsweb/css-theme-vars')
+```
+
+### Global
+
+If you install it via CDN, the object `cssThemeVars` will be global available at `window` scope.
+
+## Methods
+
+There are 4 useful methods:
+
+### css.setTheme(obj)
+
+It sets a bundle of `:root` CSS variables to config a CSS theme for your project.
+
+The `obj` argument can be any JSON or literal JS object.
+
+```javascript
+import css from '@jsweb/css-theme-vars'
 
 const theme = {
-  primary: 'teal',
-  secondary: 'cyan',
-  accent: 'gold',
-  danger: 'crimsom',
-  warning: 'orange'
+  '--color-accent': 'gold',
+  '--color-danger': 'crimsom',
+  '--color-primary': 'teal',
+  '--color-secondary': 'cyan',
+  '--color-warning': 'orange'
 }
 
-cssThemeVars(theme)
+css.setTheme(theme)
 ```
 
 Now you can do this:
@@ -34,12 +78,57 @@ Now you can do this:
 }
 ```
 
-**@jsweb/css-theme-vars** just create a var/value for each key/value pairs from the object received as argument.
+### css.getTheme()
 
-So, just use your imagination! :)
+It is just a convenient method that parses CSS variables from all **computed styles**.
 
-_PS.:_ Also available at Unpkg CDN:
+So, **not used vars will not be parsed**.
 
-```html
-<script src='https://unpkg.com/@jsweb/css-theme-vars'></script>
+```javascript
+import css from '@jsweb/css-theme-vars'
+
+const theme = css.getTheme()
+/*
+theme = {
+  '--color-accent': 'gold',
+  '--color-danger': 'crimsom',
+  '--color-primary': 'teal',
+  '--color-secondary': 'cyan',
+  '--color-warning': 'orange'
+}
+*/
+
+const colorPrimary = theme['--color-primary']
 ```
+
+Now you can use CSS variables in JS.
+
+### css.setVar(key, val)
+
+It sets a `:root` CSS variable programaticaly.
+
+```javascript
+import css from '@jsweb/css-theme-vars'
+
+css.setVar('--color-primary', 'blue')
+```
+
+Now you can change your CSS variables on the fly.
+
+### css.getVar(key)
+
+If you know a `:root` CSS variable key, then you can get it in JS.
+
+```javascript
+import css from '@jsweb/css-theme-vars'
+
+const colorPrimary = css.getVar('--color-primary')
+```
+
+Now you can use the CSS variable in JS.
+
+## How it works?
+
+**@jsweb/css-theme-vars** just plays with native methods using Vanilla JS, CSS computed sytles and DOM.
+
+So, just use your imagination! ;)
