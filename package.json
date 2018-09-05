@@ -2,9 +2,13 @@
   "name": "@jsweb/css-theme-vars",
   "version": "2.0.0",
   "description": "Get and Set global CSS properties (vars) with Vanilla JS",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
+  "esnext": "sc/main.js",
   "scripts": {
-    "dist": "rollup -c"
+    "dist": "run-s dist:*",
+    "dist:build": "rollup -c",
+    "dist:minify": "minify dist -d dist",
+    "dist:banner": "concat src/author.js dist/main.js -o dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +33,9 @@
   "homepage": "https://github.com/jsweb/css-theme-vars#README",
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-preset-minify": "^0.4.3",
+    "babel-minify": "^0.4.3",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.3",
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^4.0.2"
   }
